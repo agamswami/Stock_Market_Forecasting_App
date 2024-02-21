@@ -1,0 +1,68 @@
+/* Update Table.css */
+.flexcontainer {
+  display: flex;
+  justify-content:center;
+}
+
+.table-wrapper {
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10px;
+  margin-top: 20px; /* Adjust margin as needed */
+  color: antiquewhite;
+}
+.all-table{
+  background: transparent;
+  backdrop-filter: blur(30px);
+}
+.mar_bx{
+  float: left;
+    margin-right: 10px;
+}
+.HighWeekTable{
+  color: #ddd;
+  box-sizing: inherit;
+}
+.table-container {
+  width: calc(50% - px); /* Adjust width and margin as needed */
+  margin-bottom: 20px;
+
+  border-radius: 10px;
+  overflow: hidden; /* Ensure content does not overflow */
+}
+
+.table-container.full-width {
+  width: 100%; /* Make table container full width */
+}
+
+/* Adjust margins to move tables closer */
+.table-container:nth-child(1),
+.table-container:nth-child(2) {
+  margin-bottom: 10px; /* Reduce margin between Nifty and Company tables */
+}
+
+.table-container:nth-child(3),
+.table-container:nth-child(4) {
+  margin-top: 10px; /* Reduce margin between Top Gainers and 52 Week High tables */
+}
+
+/* Style for tables */
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container table th,
+.table-container table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  color: #fff; /* Text color */
+}
+
+.table-container table th {
+  background-color: #333; /* Header background color */
+  color: #fff; /* Header text color */
+}
