@@ -1,0 +1,19 @@
+.homeFeatures .icon{
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+}
+
+.homeFeatures svg{
+    height: 50px;
+    width: 50px;
+    padding:5px;
+    /* border-radius: 10px; */
+}
+
+.homeFeatures .icon-square{
+    /* height: 50px; */
+    /* width: 60px; */
+    border-radius: 10px;
+    /* border: 2px solid black; */
+}

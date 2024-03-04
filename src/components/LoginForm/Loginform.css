@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-.container {
+.loginForm .container {
     width: 420px;
+    height: 500px;
+    height: 50%;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(30px);
@@ -17,11 +19,10 @@
     padding: 30px 40px;
     padding-bottom:0px;
     border-radius: 10px;
-
-
+    justify-content: center;
 }
 
-.header {
+.loginForm .header {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,12 +31,12 @@
     margin-top: 30px;
 }
 
-.text {
+.loginForm .text {
     font-size: 36px;
     text-align: center;
 }
 
-.input input{
+.loginForm .input input{
     background: transparent;
     border:2px solid rgba(255, 255, 255, 0.2);
     border-radius: 40px;    
@@ -43,11 +44,11 @@
     padding: 10px 20px 10px 20px
 }
 
-.input input::placeholder{
+.loginForm .input input::placeholder{
     color: #fff;
 }
 
-.underline {
+.loginForm .underline {
     width: 61px;
     height:6px;
 
@@ -55,7 +56,7 @@
     border-radius: 10px;
 }
 
-.Submit-container {
+.loginForm .Submit-container {
     display: flex;
     /* flex-direction: row; */
     gap: 30px;
@@ -63,7 +64,7 @@
     justify-content: center;
 }
 
-.submit{
+.loginForm .submit{
     /* width: 100px; */
     display: flex;
     /* background-color: #26a406; */
@@ -80,7 +81,7 @@
     cursor: pointer
 }
 
-.gray{
+.loginForm .gray{
     background: #EAEAEA; 
     color: #676767;
 }
