@@ -1,0 +1,8 @@
+.DashBoard .ElementContainer{
+    display: flex;
+    align-items: start;;
+}
+
+.DashBoard .ElementContainer .News{
+    margin-top: 10%;
+}
