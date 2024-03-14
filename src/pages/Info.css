@@ -1,0 +1,10 @@
+.ChartAndCardCcontainer{
+    /* height: 68% */
+    display: flex;
+    direction: row;
+}
+
+.InfoContainer{
+    min-height : 100vh
+    /* height : 100vh */
+}

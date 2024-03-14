@@ -1,0 +1,23 @@
+.priceCardName{
+    /* display: flex; */
+    /* flex-direction: row; */
+    border-radius: 5px;
+    border: 2px solid rgb(233, 233, 235);
+    
+}
+.priceCard{
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.listDetailRow{ 
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    padding-left:30px;
+    padding-right:30px;
+}
+

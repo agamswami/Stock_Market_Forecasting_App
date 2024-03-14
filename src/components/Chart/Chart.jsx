@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState ,useContext ,useEffect} from "react";
 import ReactDOM from "react-dom";
 import mockData from "../Assets/mockData";
 import {ResponsiveContainer , AreaChart, Tooltip , XAxis , YAxis , Area} from "recharts"
 import "./Chart.css"
 import ChartFilter from "./ChartFilter";
 import {chartConfig} from "./config"
+import {DetailsContext} from "../Context/DetailsState";
 
 
 // import Table from "../components/Table/Table.jsx"
@@ -18,14 +19,21 @@ import {chartConfig} from "./config"
 // }
 
 function Chart(props) {
+  const {filter, setFilter , graphData} = useContext(DetailsContext);
 
-  const [filter , setFilter] = useState("1W");
+  // const [filter , setFilter] = useState("1W");
 
   function formatData(data) {
     return data.map((item, index) => {
+      if(!item.minute){
+        return {
+          price: item.close,
+          date:  "4:00 "+item.priceDate,
+        };
+      }
       return {
-        value: item.close,
-        date: item.minute,
+        price: item.close,
+        date: item.minute + " "+item.date,
       };
     });
   }
@@ -35,7 +43,7 @@ function Chart(props) {
 
     return (
       <div className="chartContainer ">
-        <ul className="d-flex justify-content-end list-unstyled mb-0">
+        <ul className="d-flex align-items-center justify-content-end list-unstyled mb-0">
           {Object.keys(chartConfig).map((item) => {
             return (
               <li key= {item}>
@@ -51,7 +59,7 @@ function Chart(props) {
         </ul>
         <div className="AreaChartContainer">
           <ResponsiveContainer >
-              <AreaChart data = {formatData(mockData)}>
+              <AreaChart data = {formatData(graphData)}>
                   {/* <Area /> */}
                   <defs>
                       <linearGradient id="ChartColor" x1="0" y1="0" x2="0" y2="1">
@@ -60,7 +68,7 @@ function Chart(props) {
                       </linearGradient>
                   </defs>
                   <Tooltip />
-                  <Area type="monotone" dataKey="value" stroke="#8884d8" fillOpacity={1} fill="url(#ChartColor)" />
+                  <Area type="monotone" dataKey="price" stroke="#8884d8" fillOpacity={1} fill="url(#ChartColor)" connectNulls={true}/>
                   <XAxis dataKey={"date"} />
                   <YAxis />
               </AreaChart>

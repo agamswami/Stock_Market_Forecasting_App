@@ -1,9 +1,12 @@
-import React from "react";
+import React ,{useState}from "react";
 import ReactDOM from "react-dom";
 import { useNavigate } from "react-router-dom";
+import Search from "./Search/Search";
 
 function Navbar(props) {
   const navigate = useNavigate();
+  const [imput,setInput] = useState("");
+
 
   return (
     <div>
@@ -71,7 +74,7 @@ function Navbar(props) {
               </li>
             </ul>
 
-            <form className="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
                 className="form-control me-2"
                 type="search"
@@ -81,7 +84,8 @@ function Navbar(props) {
               <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-            </form>
+            </form> */}
+            <Search />
             
             <button
               className="btn btn-outline-primary me-2 ms-2"

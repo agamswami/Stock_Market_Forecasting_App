@@ -6,21 +6,24 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Dashboard from './pages/DashBoard';
 import Info from './pages/Info';
-
+import { useState } from 'react';
+import SymbolState from './components/Context/SymbolState';
 
 
 function App() {
+  const [symbol , setSymbol] = useState("meta");
   return (
     <div className="App">
-      
-      <BrowserRouter>
-        <Routes>
-          <Route index element={<Info />} />
-          <Route index path = "/index" element={<Index />} />
-          <Route login path ="/login" element={<Login type = "Login"/>}/>
-          <Route login path ="/signup" element={<Login type = "Sign Up"/>}/>
-        </Routes>
-      </BrowserRouter>
+      <SymbolState data = {{symbol, setSymbol}}>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<Info />} />
+            <Route index path = "/index" element={<Index />} />
+            <Route login path ="/login" element={<Login type = "Login"/>}/>
+            <Route login path ="/signup" element={<Login type = "Sign Up"/>}/>
+          </Routes>
+        </BrowserRouter>
+      </SymbolState>
       
     </div>
   );
