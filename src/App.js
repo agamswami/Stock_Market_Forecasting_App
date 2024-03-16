@@ -17,8 +17,10 @@ function App() {
       <SymbolState data = {{symbol, setSymbol}}>
         <BrowserRouter>
           <Routes>
-            <Route index element={<Info />} />
-            <Route index path = "/index" element={<Index />} />
+            <Route index element={<Home />} />
+            {/* <Route index path = "/index" element={<Index />} /> */}
+            <Route  dashBoard path = "/dashBoard" element = {<Dashboard/>} />
+            <Route  info path = "/info" element = {<Info/>} />
             <Route login path ="/login" element={<Login type = "Login"/>}/>
             <Route login path ="/signup" element={<Login type = "Sign Up"/>}/>
           </Routes>

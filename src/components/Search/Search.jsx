@@ -20,7 +20,13 @@ function Search() {
     }
 
     useEffect(() =>{
+        
         async function updateBestMatch() {
+            if(input === ""){
+                setBestMatch([]);
+                return;
+            }
+            
             try{
                 const response = await searchSymbols(input);
 

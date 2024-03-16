@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-
+import { useLocation, useNavigate } from 'react-router-dom';
 import "./SearchResult.css"
 import { SymbolContext } from "../Context/SymbolState";
 
@@ -9,6 +9,8 @@ function SearchResult({props}){
     const {symbol,setSymbol} = useContext(SymbolContext);
     
     const {result , clear} = props;
+    let location = useLocation()
+    const navigate = useNavigate();
     
     return (
         // <ul className="dropdown-menu">
@@ -16,8 +18,13 @@ function SearchResult({props}){
         <ul className="mylist position-absolute z-3 m-2 ms-0 px-2 border-2  bg-white">
         {result.map((item) =>{
             return <li key={item.symbol} className = "p-2 px-1 m-2 mx-1 d-flex justify-content-between align-items-center " onClick={() => {
-                setSymbol(item.symbol.toLowerCase());
-                clear();
+                    console.log(location.pathname);
+                    // console.log("abababa");
+                    setSymbol(item.symbol.toLowerCase());
+                    clear();
+                    if(location.pathname != "/info"){
+                        navigate("/info");
+                    }
                 }
                 
             }>

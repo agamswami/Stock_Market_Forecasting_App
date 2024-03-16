@@ -65,6 +65,34 @@ async function searchSymbols(query){
 }
 
 
+async function getSymbols(query){
+    const url = `${baseURL}/data/CORE/REF_DATA_IEX_SYMBOLS?token=${apikey}`
+    
+        
+    const response = await fetch(url);
+
+    if(!response.ok){
+        const message = `An error has occured : ${response.status}`;
+        throw new Error(message);
+    }   
+    return await response.json();
+}
 
 
-export {fetchComapnyDetails, fetchStockPrice, searchSymbols};
+async function getNews(query){
+    const url = `${baseURL}/data/core/news/aapl?range=last-week&limit=5&token=${apikey}`
+    
+        
+    const response = await fetch(url);
+
+    if(!response.ok){
+        const message = `An error has occured : ${response.status}`;
+        throw new Error(message);
+    }   
+    return await response.json();
+}
+
+
+
+
+export {fetchComapnyDetails, fetchStockPrice, searchSymbols,getSymbols,getNews};

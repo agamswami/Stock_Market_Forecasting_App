@@ -1,0 +1,15 @@
+.symbolTable:hover{
+    background: rgb(0, 140, 255);
+    color: white;
+    cursor: pointer;
+    
+    
+}
+
+
+.symbolTable td{
+    background: transparent; 
+}
+
+
+

@@ -2,10 +2,11 @@ import React, { useState , useEffect} from "react";
 import ReactDOM from "react-dom";
 import Navbar from "../components/Navbar.js"
 import Footer from "../components/Footer/Footer.jsx";
-import Stock from "../Apirequest/Stock.js";
+
 import Table from "../components/Table/Table.jsx";
 import News from "../components/News/News.jsx";
 import "./DashBoard.css"
+import { getSymbols } from "../Apirequest/ApiDetail.js";
 // import { useState } from "react";
 
 
@@ -30,7 +31,7 @@ function Dashboard(props) {
     useEffect(() => {
       async function fetchData() {
         try {
-          const data = await Stock("aapl");
+          const data = await getSymbols();
           console.log(data); // Promise should be resolved at this point
           console.log(data[0]); // Should now print the first element of the array
           setTableData(data);
