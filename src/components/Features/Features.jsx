@@ -26,9 +26,9 @@ function Features(props) {
               <div>
                 <h3 className="fs-2 text-body-emphasis">Predictive Analytics</h3>
                 <p>Our cutting-edge predictive analytics algorithms analyze historical data, market trends, and a variety of indicators to generate accurate predictions. Stay ahead of market movements and make timely investment decisions.</p>
-                <a href="#" className="btn btn-primary">
+                {/* <a href="#" className="btn btn-primary">
                   Primary button
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col d-flex align-items-start">
@@ -39,9 +39,9 @@ function Features(props) {
               <div>
                 <h3 className="fs-2 text-body-emphasis">User-friendly Interface</h3>
                 <p>Our user-friendly interface is designed with you in mind. Whether you're a seasoned investor or a beginner, our platform provides a seamless experience for users of all levels.</p>
-                <a href="#" className="btn btn-primary">
+                {/* <a href="#" className="btn btn-primary">
                   Primary button
-                </a>
+                </a> */}
               </div>
             </div>
             <div className="col d-flex align-items-start">
@@ -52,9 +52,9 @@ function Features(props) {
               <div>
                 <h3 className="fs-2 text-body-emphasis">Real-time Market Data</h3>
                 <p>Access real-time market data, live price updates, and dynamic charts. Stay informed about the latest market trends and fluctuations, ensuring you are always well-equipped to react to changes.</p>
-                <a href="#" className="btn btn-primary">
+                {/* <a href="#" className="btn btn-primary">
                   Primary button
-                </a>
+                </a> */}
               </div>
             </div>
           </div>

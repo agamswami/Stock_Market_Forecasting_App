@@ -1,3 +1,10 @@
 .homeHero p {
     color: rgb(248, 247, 247);
 }
+.welcomeText{
+    font-family: "PT Serif Caption", serif;
+    font-weight: 400;
+    font-style: normal;
+  
+}
+  

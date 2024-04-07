@@ -2,6 +2,7 @@ import React ,{useState}from "react";
 import ReactDOM from "react-dom";
 import { useNavigate } from "react-router-dom";
 import Search from "./Search/Search";
+import UserIcon from "./UserIcon/UserIcon";
 
 function Navbar(props) {
   const navigate = useNavigate();
@@ -104,6 +105,7 @@ function Navbar(props) {
               onClick={() => navigate("/signup")}>
               Sign Up
             </button>
+            <UserIcon />
             
           </div>
         </div>

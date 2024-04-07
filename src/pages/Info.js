@@ -30,7 +30,7 @@ function Info(props) {
   const [graphData,setGraphData] = useState([])
   const {symbol,setSymbol} = useContext(SymbolContext);
   // const ticker = "aapl"
-  const [filter , setFilter] = useState("1M");
+  const [filter , setFilter] = useState("1D");
   // useEffect(
   //   () => {
   //     async () => {

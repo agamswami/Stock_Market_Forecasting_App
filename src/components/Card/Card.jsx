@@ -64,28 +64,61 @@ import "./Card.css"
 
 function Card(props) {
 
-    const {details,setDetails} = useContext(DetailsContext);
+    const {details,setDetails,graphData} = useContext(DetailsContext);
+    
+    console.log(graphData[graphData.length-1]);
+    console.log(details);
+    let startPrice;
+    let lastPrice;
+    let percentageChange;
+    let sign = ""
+    let change;
+    // const [profit,setprofit] = useState(1);
+    // const [sign,setsign] = useState("");
+    try{
+        let i = graphData.length-1;
+        console.log(graphData[i].close);
+        while( i >= 0 && graphData[i].close === null){
+            i--;
+        }
+        lastPrice =  (i < -1) ? 0 : graphData[i].close;
     
 
+        i = 0;
+        while( i < graphData.length && graphData[i].close === null){
+            i++;
+        }
+        startPrice = (i >= graphData.length) ? 0 : graphData[i].close;
+
+        change = (lastPrice-startPrice).toFixed(1);
+        percentageChange = (((lastPrice-startPrice)/startPrice)*100).toFixed(1) ;
+        // setprofit(percentageChange);
+    } catch(error){
+        lastPrice = 0;
+        startPrice = 0;
+        percentageChange = 0;
+        change = 0 
+        console.log(error);
+    }
+
+    
 
     // useEffect(() => {
         // setDetails(details[0]);
     // },[useContext(DetailsCont.details)])
 
-    const [profit,setprofit] = useState(1);
-    const [sign,setsign] = useState("");
 
-    if(profit === 1 && sign != "+"){
-        setsign("+");
+    if(percentageChange > 0 && sign != "+"){
+        sign = "+";
     }
 
     return (
       <div className="w-35">
         <div className="priceCardName mt-5 mb-4 me-4 bg-white">
-            <p style={{textAlign : "left",margin : "7px", color : "#D3D3D3"}}>{"AAPL"}</p>
+            <p style={{textAlign : "left",margin : "7px", color : "#D3D3D3"}}>{details.symbol}</p>
             <div className="priceCard">
-                <p style={{fontSize : 30}}>{`$300`} <span style ={{color:"#D3D3D3" , fontSize : 16}}>USD</span></p>
-                <p style={(profit === 0) ? {fontSize : 30 , color : "#D3D3D3"} : ((profit === 1) ? {fontSize :30 , color : "green"} : {fontSize :30 , color : "red"})}>{`${sign}30(10%)`}</p>
+                <p style={{fontSize : 30}}>{`$ ${lastPrice}`} <span style ={{color:"#D3D3D3" , fontSize : 16}}>USD</span></p>
+                <p style={(percentageChange === 0) ? {fontSize : 30 , color : "#D3D3D3"} : ((percentageChange > 0) ? {fontSize :30 , color : "green"} : {fontSize :30 , color : "red"})}>{`${sign}${change}(${percentageChange}%)`}</p>
             </div>
         </div>
         <div className="me-4">
