@@ -3,8 +3,11 @@ import ReactDOM from "react-dom";
 import { useNavigate } from "react-router-dom";
 import Search from "./Search/Search";
 import UserIcon from "./UserIcon/UserIcon";
+import {useContext} from "react";
+import { SymbolContext } from "./Context/SymbolState"
 
 function Navbar(props) {
+  const {authFlag , setAuthFlag} = useContext(SymbolContext);
   const navigate = useNavigate();
   const [imput,setInput] = useState("");
 
@@ -29,21 +32,21 @@ function Navbar(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">
+                <a className="nav-link active" aria-current="page" href={authFlag ? "/home":"/"}>
                   Home
                 </a>
               </li>
-              <li className="nav-item">
+              {authFlag ? <li className="nav-item" >
                 <a className="nav-link active" aria-current="page" href="/dashBoard">
                   DashBoard
                 </a>
-              </li>
-              <li className="nav-item">
+              </li> : null}
+              {/* <li className="nav-item">
                 <a className="nav-link" href="/">
                   Link
                 </a>
-              </li>
-              <li className="nav-item dropdown">
+              </li> */}
+              {/* <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
                   href="/"
@@ -72,12 +75,12 @@ function Navbar(props) {
                     </a>
                   </li>
                 </ul>
-              </li>
-              <li className="nav-item">
+              </li> */}
+              {/* <li className="nav-item">
                 <a className="nav-link disabled" aria-disabled="true">
                   Disabled
                 </a>
-              </li>
+              </li> */}
             </ul>
 
             {/* <form className="d-flex" role="search">
@@ -91,21 +94,22 @@ function Navbar(props) {
                 Search
               </button>
             </form> */}
-            <Search />
+
+            {authFlag ? <Search /> : null}
             
-            <button
+            {!authFlag ? <button
               className="btn btn-outline-primary me-2 ms-2"
               onClick={() => navigate("/login")}>
               Login
-            </button>
+            </button> : null}
             
             
-            <button
+            {!authFlag ? <button
               className="btn btn-primary"
               onClick={() => navigate("/signup")}>
               Sign Up
-            </button>
-            <UserIcon />
+            </button> : null}
+            {authFlag ? <UserIcon /> : null}
             
           </div>
         </div>

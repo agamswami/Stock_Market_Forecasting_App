@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from "react";
+import React, { useState , useEffect, useContext} from "react";
 import ReactDOM from "react-dom";
 import Navbar from "../components/Navbar.js"
 import Footer from "../components/Footer/Footer.jsx";
@@ -8,12 +8,14 @@ import News from "../components/News/News.jsx";
 import "./DashBoard.css"
 import { getSymbols } from "../Apirequest/ApiDetail.js";
 // import { useState } from "react";
-
+import { SymbolContext } from "../components/Context/SymbolState.js"
 
 // import Table from "../components/Table/Table.jsx"
 
 
 function Dashboard(props) {
+  const {authFlag , setAuthFlag} = useContext(SymbolContext);
+  setAuthFlag(true);
 
   // const data = Stock("nvda");
   // // const data2 = {

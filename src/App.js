@@ -12,13 +12,14 @@ import SymbolState from './components/Context/SymbolState';
 
 function App() {
   const [symbol , setSymbol] = useState("meta");
+  const [authFlag , setAuthFlag] = useState(false);
   return (
     <div className="App">
-      <SymbolState data = {{symbol, setSymbol}}>
+      <SymbolState data = {{symbol, setSymbol ,authFlag,setAuthFlag}}>
         <BrowserRouter>
           <Routes>
             <Route index element={<Home />} />
-            {/* <Route index path = "/index" element={<Index />} /> */}
+            <Route home path = "/home" element={<Home type = "true"/>} />
             <Route  dashBoard path = "/dashBoard" element = {<Dashboard/>} />
             <Route  info path = "/info" element = {<Info/>} />
             <Route login path ="/login" element={<Login type = "Login"/>}/>

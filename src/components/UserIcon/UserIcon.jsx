@@ -12,7 +12,14 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 
+import {useContext} from "react";
+import { SymbolContext } from "../Context/SymbolState"
+import { useNavigate } from "react-router-dom";
+
+
 export default function UserIcon() {
+  const navigate = useNavigate();
+  const {authFlag , setAuthFlag} = useContext(SymbolContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -20,6 +27,10 @@ export default function UserIcon() {
   };
   const handleClose = () => {
     setAnchorEl(null);
+    setAuthFlag(false);
+    navigate("/")
+
+
   };
   return (
     <React.Fragment>
